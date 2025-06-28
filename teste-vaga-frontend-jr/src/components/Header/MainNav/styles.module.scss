@@ -1,0 +1,55 @@
+@use '../../../styles/variables' as v;
+
+.mainNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: v.$white;
+  border-bottom: 1px solid rgba(v.$dark-text, 0.1);
+  width: 100%;
+  padding: 0 10%;
+  height: 60px; /* Ajustado para melhor visualização */
+
+  .logoImage {
+    height: 30px; /* Tamanho reduzido para ficar proporcional */
+    width: auto;
+  }
+
+  .nav {
+    display: flex;
+    gap: 2.5em; /* Espaçamento maior entre itens */
+    margin-left: auto; /* Alinha os itens à direita */
+
+    .navLink {
+      color: v.$dark-text;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.875rem; /* Tamanho menor conforme imagem */
+      text-transform: uppercase; /* Texto em maiúsculas */
+      letter-spacing: 0.5px; /* Espaçamento entre letras */
+      position: relative;
+      padding: 1.5em 0; /* Padding vertical aumentado */
+      white-space: nowrap; /* Impede quebra de linha */
+
+      &:hover {
+        color: v.$secondary;
+        
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 2px;
+          background: v.$secondary;
+        }
+      }
+
+      /* Estilo para link ativo (opcional) */
+      &.active {
+        color: v.$secondary;
+        font-weight: 600;
+      }
+    }
+  }
+}

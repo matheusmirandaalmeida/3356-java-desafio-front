@@ -1,0 +1,47 @@
+@use '../../../styles/variables' as v;
+
+.promoBanner {
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('@img/banner.jpg');
+  background-size: cover;
+  background-position: center;
+  width: 90em;
+  height: 390px;
+  display: flex;
+  align-items: center;
+  padding-left: 10%;
+  position: relative;
+
+  &Content {
+    max-width: 1440x;
+    z-index: 2;
+    color: v.$white;
+
+    h2 {
+      font-size: 2.25rem;
+      margin-bottom: 15px;
+      line-height: 1.2;
+    }
+
+    p {
+      font-size: 1.5rem;
+      margin-bottom: 25px;
+    }
+
+    .promoButton {
+      background: v.$secondary;
+      color: v.$white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 3px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-size: 1rem;
+
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 12px rgba(v.$secondary, 0.3);
+      }
+    }
+  }
+}

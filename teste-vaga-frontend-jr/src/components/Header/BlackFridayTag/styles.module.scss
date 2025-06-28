@@ -1,0 +1,27 @@
+@use '../../../styles/variables' as v;
+
+.blackFridayTag {
+  position: absolute;
+  top: 120px;
+  right: 50px;
+  background: v.$secondary;
+  color: v.$white;
+  padding: 10px 15px;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: 700;
+  z-index: 10;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  
+  span:first-child {
+    font-size: 1.125rem;
+    line-height: 1.2;
+  }
+  
+  span:last-child {
+    font-size: 0.875rem;
+    letter-spacing: 1px;
+  }
+}

@@ -1,0 +1,18 @@
+@use '../../../styles/variables' as v;
+
+.topBar {
+  background: v.$white;
+  color: v.$dark-text;
+  padding: 12px 0;
+  text-align: center;
+  width: 100%;
+  
+  &Content {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-size: 0.875rem;
+  }
+}
