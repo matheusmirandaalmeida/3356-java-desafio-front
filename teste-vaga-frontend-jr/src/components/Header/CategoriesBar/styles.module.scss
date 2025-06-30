@@ -18,7 +18,7 @@
     padding: 5px 0;
 
     &:hover {
-      color: v.$secondary;
+      color: v.$primaria;
 
       &::after {
         content: '';
@@ -27,7 +27,7 @@
         left: 0;
         width: 100%;
         height: 2px;
-        background: v.$secondary;
+        background: v.$primaria;
       }
     }
   }

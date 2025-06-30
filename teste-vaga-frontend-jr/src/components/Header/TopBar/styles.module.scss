@@ -1,18 +1,29 @@
 @use '../../../styles/variables' as v;
 
 .topBar {
-  background: v.$white;
-  color: v.$dark-text;
+  background: v.$white;  // Cor roxa - ajuste no variables.scss
+  color: v.$cinza-claro;
   padding: 12px 0;
-  text-align: center;
   width: 100%;
+  font-family: 'Poppins', sans-serif; // Adicione ao index.html
   
   &Content {
     display: flex;
     justify-content: center;
-    gap: 40px;
+    align-items: center;
+    gap: 40px; // Espaçamento da imagem
     max-width: 1200px;
     margin: 0 auto;
-    font-size: 0.875rem;
+    font-size: 12px; // Tamanho exato
+    font-weight: 600; // Negrito
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+
+    .checkIcon {
+      margin-right: 8px;
+      vertical-align: middle;
+      font-size: 14px; // Tamanho do ícone
+      color: v.$white;
+    }
   }
 }

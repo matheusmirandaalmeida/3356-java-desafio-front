@@ -28,7 +28,7 @@
     }
 
     .promoButton {
-      background: v.$secondary;
+      background: v.$primaria;
       color: v.$white;
       border: none;
       padding: 12px 30px;
@@ -40,7 +40,7 @@
 
       &:hover {
         transform: translateY(-3px);
-        box-shadow: 0 4px 12px rgba(v.$secondary, 0.3);
+        box-shadow: 0 4px 12px rgba(v.$primaria, 0.3);
       }
     }
   }

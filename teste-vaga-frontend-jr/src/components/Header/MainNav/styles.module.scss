@@ -2,54 +2,170 @@
 
 .mainNav {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
   background: v.$white;
-  border-bottom: 1px solid rgba(v.$dark-text, 0.1);
   width: 100%;
-  padding: 0 10%;
-  height: 60px; /* Ajustado para melhor visualização */
+  font-family: 'Poppins', sans-serif;
 
-  .logoImage {
-    height: 30px; /* Tamanho reduzido para ficar proporcional */
-    width: auto;
+  .topSection {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10%;
+    height: 80px;
+    width: 100%;
+
+    .logoImage {
+      height: 30px;
+      width: auto;
+    }
+
+    .searchContainer {
+      flex: 1;
+      display: flex;
+      max-width: 630px;
+      margin: 0 30px;
+
+      .searchInput {
+        flex: 1;
+        padding: 10px 16px;
+        border: 2px solid v.$destaque;
+        border-radius: 4px 0 0 4px;
+        font-size: 0.875rem;
+        background: v.$light-bg;
+        color: v.$cinza-escuro;
+
+        &::placeholder {
+          color: v.$cinza-claro;
+          opacity: 1;
+        }
+      }
+
+      .searchButton {
+        padding: 0 20px;
+        border: 2px solid v.$destaque;
+        border-left: none;
+        background: v.$light-bg;
+        border-radius: 0 4px 4px 0;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s;
+
+        .searchIcon {
+          width: 20px;
+          height: 20px;
+          stroke: v.$cinza-claro;
+          transition: all 0.3s;
+        }
+
+        &:hover {
+          background: v.$primaria;
+
+          .searchIcon {
+            stroke: v.$white;
+          }
+        }
+      }
+    }
+
+    .iconsGroup {
+      display: flex;
+      gap: 25px;
+      align-items: center;
+
+      &:hover {
+        // fill: v.$primaria;
+        transform: translateY(-2px);
+      }
+
+      .navIcon {
+        width: 32px;
+        height: 32px;
+        cursor: pointer;
+        transition: all 0.3s;
+        // fill: v.$dark-text;
+
+        &:hover {
+          fill: v.$primaria;
+          transform: translateY(-2px);
+        }
+      }
+    }
   }
 
   .nav {
     display: flex;
-    gap: 2.5em; /* Espaçamento maior entre itens */
-    margin-left: auto; /* Alinha os itens à direita */
+    gap: 2.5em;
+    justify-content: center;
+    padding: 0 10%;
+    border-top: 1px solid v.$light-bg;
+    background: v.$white;
 
     .navLink {
-      color: v.$dark-text;
+      color: v.$cinza-claro;
       text-decoration: none;
-      font-weight: 500;
-      font-size: 0.875rem; /* Tamanho menor conforme imagem */
-      text-transform: uppercase; /* Texto em maiúsculas */
-      letter-spacing: 0.5px; /* Espaçamento entre letras */
+      font-weight: 600;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
       position: relative;
-      padding: 1.5em 0; /* Padding vertical aumentado */
-      white-space: nowrap; /* Impede quebra de linha */
+      padding: 1.5em 0;
+      white-space: nowrap;
+      transition: all 0.3s;
 
       &:hover {
-        color: v.$secondary;
-        
+        color: v.$dark-text;
+
         &::after {
           content: '';
           position: absolute;
-          bottom: 0;
+          bottom: 1em;
           left: 0;
           width: 100%;
           height: 2px;
-          background: v.$secondary;
+          // background: v.$primaria;
         }
       }
 
-      /* Estilo para link ativo (opcional) */
       &.active {
-        color: v.$secondary;
+        color: v.$primary;
         font-weight: 600;
       }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .mainNav {
+    .topSection {
+      height: auto;
+      padding: 15px 5%;
+      flex-wrap: wrap;
+      gap: 15px;
+
+      .logoImage {
+        order: 1;
+      }
+
+      .searchContainer {
+        order: 3;
+        margin: 10px 0;
+        max-width: 100%;
+      }
+
+      .iconsGroup {
+        order: 2;
+        margin-left: auto;
+        gap: 15px;
+      }
+    }
+
+    .nav {
+      overflow-x: auto;
+      padding: 10px 5%;
+      justify-content: flex-start;
     }
   }
 }
