@@ -1,16 +1,9 @@
+import Icon from '../../Icon';
 import styles from './styles.module.scss';
 import logo from '../../../assets/images/logo.svg';
-import Icon from '../../Icon';
-import TruckIcon from '../../icons/TruckIcon';
-import GroupIcon from '../../icons/GroupIcon';
-
-import UserIcon from '../../icons/UserIcon';
-import HeartIcon from '../../icons/HeartIcon';
-import CartIcon from '../../icons/CartIcon';
 
 const MainNav = () => (
   <div className={styles.mainNav}>
-    
     <div className={styles.topSection}>
       <img 
         src={logo} 
@@ -31,16 +24,16 @@ const MainNav = () => (
 
       <div className={styles.iconsGroup}>
         <div className={styles.iconWrapper}>
-          <CartIcon className={styles.navIcon} />
+          <Icon name="group" className={styles.navIcon} />
         </div>
         <div className={styles.iconWrapper}>
-          <UserIcon className={styles.navIcon} />
+          <Icon name="heart" className={styles.navIcon} />
         </div>
         <div className={styles.iconWrapper}>
-          <HeartIcon className={styles.navIcon} />
+          <Icon name="user" className={styles.navIcon} />
         </div>
         <div className={styles.iconWrapper}>
-          <TruckIcon className={styles.navIcon} />
+          <Icon name="cart" className={styles.navIcon} />
         </div>
       </div>
     </div>

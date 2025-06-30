@@ -1,33 +1,88 @@
 @use '../../../styles/variables' as v;
 
 .categoriesBar {
-  background: v.$light-bg;
-  padding: 15px 10%;
+  padding: 35px 10%;
   display: flex;
-  justify-content: center;
-  gap: 30px;
-  border-bottom: 1px solid rgba(v.$dark-text, 0.1);
+  justify-content: space-between;
+  gap: 15px;
+  border-bottom: 1px solid rgba(v.$primary, 0.1);
+  overflow-x: auto;
+  scrollbar-width: none;
+  font-family: v.$font-primary;
+
+  // &::-webkit-scrollbar {
+  //   display: none;
+  // }
 
   .categoryItem {
-    color: v.$dark-text;
-    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 8em;
+    height: 8em;
+    background: #F4F4F4;
+    border-radius: 10px;
+    box-shadow: 0px 4px 11px rgba(0, 0, 0, 0.13);
     cursor: pointer;
-    font-size: 0.9375rem;
-    transition: color 0.3s ease;
-    position: relative;
-    padding: 5px 0;
+    transition: all 0.3s ease;
+    text-decoration: none;
+
+    .categoryIcon {
+      width: 61px;
+      height: 61;
+      object-fit: contain;
+      margin-bottom: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    span {
+      color: v.$dark-text;
+      font-weight: 600;
+      font-size: 0.875rem;
+      text-align: center;
+      text-transform: none;
+      letter-spacing: 0.5px;
+    }
 
     &:hover {
-      color: v.$primaria;
+      transform: translateY(-3px);
+      .categoryIcon {
+        transform: scale(1.1);
+      }
+      span {
+        color: v.$primaria;
+      }
+    }
 
-      &::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        background: v.$primaria;
+    &.active {
+      span {
+        color: v.$primary;
+        font-weight: 700;
+      }
+      .categoryIcon {
+        filter: drop-shadow(0 0 2px rgba(v.$primary, 0.5));
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .categoriesBar {
+    padding: 15px 10%;
+    gap: 10px;
+    
+    .categoryItem {
+      min-width: 100px;
+      height: 100px;
+      
+      .categoryIcon {
+        width: 35px;
+        height: 35px;
+      }
+      
+      span {
+        font-size: 0.75rem;
       }
     }
   }

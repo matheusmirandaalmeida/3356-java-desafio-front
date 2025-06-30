@@ -6,15 +6,15 @@ const TopBar = () => (
     <div className={styles.topBarContent}>
       <span className={styles.topBarItem}>
         <Icon name="shield" className={styles.checkIcon} />
-        COMPRA 100% SEGURA
+        COMPRA <span className={styles.highlight}>100% SEGURA</span>
       </span>
       <span className={styles.topBarItem}>
         <Icon name="truck" className={styles.checkIcon} />
-        FRETE GRÁTIS ACIMA DE R$ 200
+        <span className={styles.highlight}>FRETE GRÁTIS</span> ACIMA DE R$ 200
       </span>
       <span className={styles.topBarItem}>
         <Icon name="card" className={styles.checkIcon} />
-        PARCELE SUAS COMPRAS
+        <span className={styles.highlight}>PARCELE</span> SUAS COMPRAS
       </span>
     </div>
   </div>

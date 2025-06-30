@@ -1,16 +1,17 @@
-
-
 import ShieldCheckIcon from './icons/ShieldCheckIcon';
-import MagnifyglassIcon from './icons/MagnifyglassIcon';
-import CardIcon from './icons/CardIcon';
-import CartIcon from './icons/CartIcon';
 import TruckIcon from './icons/TruckIcon';
+import CardIcon from './icons/CardIcon';
+import MagnifyglassIcon from './icons/MagnifyglassIcon';
+import CartIcon from './icons/CartIcon';
+import UserIcon from './icons/UserIcon';
+import HeartIcon from './icons/HeartIcon';
+import GroupIcon from './icons/GroupIcon';
 
-type IconName = 'shield' | 'truck' | 'card' | 'magnifyglass' | 'cart';
+type IconName = 'shield' | 'truck' | 'card' | 'group' | 'magnifyglass' | 'cart' | 'user' | 'heart';
 
 interface IconProps {
-    name: IconName;
-    className?: string;
+  name: IconName;
+  className?: string;
 }
 
 const icons: Record<IconName, React.FC<{ className?: string }>> = {
@@ -19,16 +20,17 @@ const icons: Record<IconName, React.FC<{ className?: string }>> = {
   card: CardIcon,
   magnifyglass: MagnifyglassIcon,
   cart: CartIcon,
+  user: UserIcon,
+  heart: HeartIcon,
+  group: GroupIcon,
 };
 
 const Icon: React.FC<IconProps> = ({ name, className = "" }) => {
   const IconComponent = icons[name];
-
   if (!IconComponent) {
     console.warn(`Ícone "${name}" não encontrado.`);
     return null;
   }
-
   return <IconComponent className={className} />;
 };
 

@@ -16,7 +16,7 @@
     width: 100%;
 
     .logoImage {
-      height: 30px;
+      height: auto;
       width: auto;
     }
 
@@ -98,7 +98,7 @@
   .nav {
     display: flex;
     gap: 2.5em;
-    justify-content: center;
+    justify-content: space-around;
     padding: 0 10%;
     border-top: 1px solid v.$light-bg;
     background: v.$white;
