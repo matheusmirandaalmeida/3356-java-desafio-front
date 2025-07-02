@@ -4,6 +4,9 @@ import Header from './components/Header';
 import ProductCarousel from './components/ProductCarousel';
 import ProductModal from './components/ProductModal';
 import type { Product } from './types/Product';
+import CategoryTabs from './components/CategoryTabs';
+import PartnerBanner from './components/Partners/PartnerBanner';
+import BrandLogos from './components/Brands/BrandLogos';
 
 function App() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -12,6 +15,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
+  const [selectedCategory, setSelectedCategory] = useState<string>("CELULAR");
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -42,8 +46,33 @@ function App() {
       <Header />
 
       <main className="main-content">
+        <h2 className="related-title">Produtos relacionados</h2>
 
-        {/* <CategoryTabs selected={selectedCategory} onSelect={setSelectedCategory} /> */}
+        <CategoryTabs selected={selectedCategory} onSelect={setSelectedCategory} />
+
+        {isLoading && <p>Carregando produtos...</p>}
+        {error && <p>{error}</p>}
+        {!isLoading && !error && (
+          <ProductCarousel products={products} onProductClick={handleProductClick} />
+        )}
+
+        <PartnerBanner/>
+
+        <h2 className="related-title">Produtos relacionados</h2>
+        <CategoryTabs selected={selectedCategory} onSelect={setSelectedCategory} />
+
+        {isLoading && <p>Carregando produtos...</p>}
+        {error && <p>{error}</p>}
+        {!isLoading && !error && (
+          <ProductCarousel products={products} onProductClick={handleProductClick} />
+        )}
+
+        <PartnerBanner/>
+
+        <BrandLogos />
+
+        <h2 className="related-title">Produtos relacionados</h2>
+        <CategoryTabs selected={selectedCategory} onSelect={setSelectedCategory} />
 
         {isLoading && <p>Carregando produtos...</p>}
         {error && <p>{error}</p>}

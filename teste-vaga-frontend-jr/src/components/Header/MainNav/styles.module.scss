@@ -25,11 +25,12 @@
       display: flex;
       max-width: 630px;
       margin: 0 30px;
+      height: 3em;
 
       .searchInput {
         flex: 1;
         padding: 10px 16px;
-        border: 2px solid v.$destaque;
+        border: none;
         border-radius: 4px 0 0 4px;
         font-size: 0.875rem;
         background: v.$light-bg;
@@ -43,7 +44,7 @@
 
       .searchButton {
         padding: 0 20px;
-        border: 2px solid v.$destaque;
+        border: none;
         border-left: none;
         background: v.$light-bg;
         border-radius: 0 4px 4px 0;
@@ -61,7 +62,7 @@
         }
 
         &:hover {
-          background: v.$primaria;
+          background: v.$primaria-clara;
 
           .searchIcon {
             stroke: v.$white;

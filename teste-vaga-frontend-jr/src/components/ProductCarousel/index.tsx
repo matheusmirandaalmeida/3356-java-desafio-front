@@ -1,4 +1,3 @@
-// src/components/ProductCarousel/index.tsx
 import { useState } from "react";
 import type { Product } from "../../types/Product";
 import styles from "./styles.module.scss";
@@ -29,7 +28,6 @@ const ProductCarousel = ({ products, onProductClick }: Props) => {
 
   return (
     <section className={styles.carouselSection}>
-      <h2 className={styles.title}>Produtos relacionados</h2>
 
       <div className={styles.carouselWrapper}>
         <button className={styles.arrowLeft} onClick={handlePrev}>

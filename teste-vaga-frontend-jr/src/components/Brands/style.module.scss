@@ -1,0 +1,42 @@
+@use "../../styles/variables.scss" as v;
+
+.brandSection {
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.title {
+  font-size: 2.813rem;
+  font-weight: 700;
+  color: v.$primaria-clara;
+  margin-bottom: 2rem;
+}
+
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.logoCircle {
+  width: 13.188em;
+  height: 13.188em;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  img {
+    max-width: 70%;
+    height: auto;
+  }
+
+  &:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  }
+}

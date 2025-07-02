@@ -1,3 +1,5 @@
+@use "../src/styles/variables.scss" as v;
+
 // *,
 // *::before,
 // *::after {
@@ -34,7 +36,7 @@ display: flex;
 
 /* Conteúdo principal */
 .main-content {
-  width: 100%;
+  width: 85.25em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,6 +48,29 @@ display: flex;
   width: 100%;
   margin-bottom: 30px;
   color: #2A2A2A;
+}
+
+// h2 Produtos relacionados
+.related-title {
+  font-size: 1.875rem;
+  font-weight: bold;
+  color: #151875;
+  text-align: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 3rem 0 1.5rem;
+  width: 100%;
+
+  &::before,
+  &::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background-color: v.$light-bg;
+    margin: 0 1rem;
+  }
 }
 
 /* Grade de produtos */
@@ -100,27 +125,3 @@ display: flex;
   }
 }
 
-/* Modal */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0,0,0,0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-.modal-content {
-  background: white;
-  border-radius: 8px;
-  width: 90%;
-  max-width: 800px;
-  padding: 30px;
-  position: relative;
-}
-
-/* ... (mantenha o resto dos estilos do modal) ... */

@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      '@img': path.resolve('../teste-vaga-frontend-jr/img')
+      '@img': path.resolve('src/assets/images')
     }
   },
   server: {

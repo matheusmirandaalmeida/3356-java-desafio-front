@@ -7,7 +7,6 @@ interface Props {
 }
 
 export default function ProductCard({ product, onClick }: Props) {
-  // Cálculo de preço fictício e parcelas para exemplo
   const oldPrice = (product.price * 1.1).toFixed(2);
   const parcelas = 2;
   const valorParcela = (product.price / parcelas).toFixed(2);

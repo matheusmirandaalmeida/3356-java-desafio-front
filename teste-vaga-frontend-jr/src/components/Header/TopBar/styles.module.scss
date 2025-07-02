@@ -5,7 +5,8 @@
   color: v.$cinza-claro;
   padding: 12px 0;
   width: 100%;
-  font-family: 'Poppins', sans-serif; 
+  font-family: 'Poppins', sans-serif;
+  border-bottom: 1px solid v.$light-bg; 
   
   &Content {
     display: flex;

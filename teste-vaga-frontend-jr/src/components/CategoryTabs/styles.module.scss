@@ -2,26 +2,27 @@
 
 .tabs {
   display: flex;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  overflow: hidden;
   justify-content: center;
-  margin-bottom: 2rem;
+  // margin-top: 0.5rem;
+  // margin-bottom: 2rem;
+  width: 100%;
+  border: none;
 }
 
 .tab {
   flex: 1;
+  max-width: 200px; // limita cada aba para não esticar demais
   padding: 0.75rem 1rem;
   text-align: center;
   background-color: v.$white;
   font-family: v.$font-primary;
   font-weight: 500;
   color: v.$cinza-escuro;
-  border-right: 1px solid #ddd;
+  border: 1px solid #ddd;
   cursor: pointer;
   transition: all 0.2s ease;
 
-  &:last-child {
+  &:not(:last-child) {
     border-right: none;
   }
 

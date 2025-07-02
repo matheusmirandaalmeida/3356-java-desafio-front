@@ -1,0 +1,73 @@
+@use "../../styles/variables.scss" as v;
+
+.partnerSection {
+  display: flex;
+  gap: 2rem;
+  margin: 2rem auto;
+  padding: 1rem;
+  max-width: 1440px;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.partnerCard {
+  position: relative;
+  width: 39.625em;
+  height: 21.875em;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+
+  background: url("../../assets/images/imgParceiros.jpg") no-repeat center
+    center / cover;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+  }
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  color: white;
+  text-align: left;
+  padding: 2rem;
+  max-width: 280px;
+
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+  }
+
+  button {
+    background-color: v.$destaque;
+    color: v.$purple;
+    border: none;
+    padding: 0.5rem 1.5rem;
+    font-weight: 700;
+    font-size: 1em;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 9.043em;
+    height: 3em;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+}
