@@ -1,0 +1,36 @@
+@use '../../styles/variables.scss' as v;
+
+.tabs {
+  display: flex;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.tab {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  text-align: center;
+  background-color: v.$white;
+  font-family: v.$font-primary;
+  font-weight: 500;
+  color: v.$cinza-escuro;
+  border-right: 1px solid #ddd;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:last-child {
+    border-right: none;
+  }
+
+  &:hover {
+    background-color: v.$light-bg;
+  }
+
+  &.active {
+    color: v.$primaria-clara;
+    font-weight: bold;
+  }
+}

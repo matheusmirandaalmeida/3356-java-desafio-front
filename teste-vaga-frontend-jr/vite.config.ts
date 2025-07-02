@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import path from 'path';
+import path from 'path'
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -9,5 +9,14 @@ export default defineConfig({
     alias: {
       '@img': path.resolve('../teste-vaga-frontend-jr/img')
     }
+  },
+  server: {
+    proxy: {
+      '/api': {
+        target: 'https://app.econverse.com.br',
+        changeOrigin: true,
+        rewrite: path => path.replace(/^\/api/, '')
+      }
+    }
   }
-});
+})

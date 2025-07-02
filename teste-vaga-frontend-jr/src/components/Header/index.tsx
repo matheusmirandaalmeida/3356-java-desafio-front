@@ -2,7 +2,6 @@ import TopBar from './TopBar/TopBar';
 import MainNav from './MainNav/MainNav';
 import PromoBanner from './PromoBanner/PromoBanner';
 import CategoriesBar from './CategoriesBar/CategoriesBar';
-import BlackFridayTag from './BlackFridayTag/BlackFridayTag';
 
 const Header = () => {
   return (
@@ -11,7 +10,6 @@ const Header = () => {
       <MainNav />
       <PromoBanner />
       <CategoriesBar />
-      <BlackFridayTag />
     </header>
   );
 };

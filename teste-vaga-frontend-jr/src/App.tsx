@@ -1,26 +1,35 @@
-import { useState, useEffect } from 'react';
-import Header from './components/Header';
+import { useEffect, useState } from 'react';
 import './App.scss';
-
-interface Product {
-  id: number;
-  name: string;
-  price: number;
-  description: string;
-  image: string;
-  category?: string;
-}
+import Header from './components/Header';
+import ProductCarousel from './components/ProductCarousel';
+import ProductModal from './components/ProductModal';
+import type { Product } from './types/Product';
 
 function App() {
   const [products, setProducts] = useState<Product[]>([]);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
 
   useEffect(() => {
-    fetch('https://app.econverse.com.br/teste-front-end/junior/tecnologia/lista-produtos/produtos.json')
-      .then(response => response.json())
-      .then(data => setProducts(data.products))
-      .catch(error => console.error('Erro ao carregar produtos:', error));
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch('/api/teste-front-end/junior/tecnologia/lista-produtos/produtos.json');
+        if (!response.ok) {
+          throw new Error('Erro ao carregar produtos');
+        }
+        const data = await response.json();
+        setProducts(data.products);
+      } catch (err) {
+        setError('Erro ao carregar produtos.');
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchProducts();
   }, []);
 
   const handleProductClick = (product: Product) => {
@@ -31,46 +40,24 @@ function App() {
   return (
     <div className="app-container">
       <Header />
-      
-      <main className="main-content">
-        <h2 className="section-title">Nossos Produtos</h2>
-        
-        <div className="products-grid">
-          {products.map(product => (
-            <article 
-              key={product.id}
-              className="product-card"
-              onClick={() => handleProductClick(product)}
-            >
-              <img src={product.image} alt={product.name} className="product-image" />
-              <div className="product-info">
-                <h3>{product.name}</h3>
-                <span className="price">R$ {product.price.toFixed(2)}</span>
-                {product.category && <span className="category">{product.category}</span>}
-              </div>
-            </article>
-          ))}
-        </div>
-      </main>
 
-      {isModalOpen && selectedProduct && (
-        <div className="modal-overlay" onClick={() => setIsModalOpen(false)}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="close-button" onClick={() => setIsModalOpen(false)}>
-              &times;
-            </button>
-            <div className="modal-body">
-              <img src={selectedProduct.image} alt={selectedProduct.name} className="modal-image" />
-              <div className="product-details">
-                <h2>{selectedProduct.name}</h2>
-                <span className="price">R$ {selectedProduct.price.toFixed(2)}</span>
-                <p className="description">{selectedProduct.description}</p>
-                <button className="buy-button">Adicionar ao Carrinho</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+      <main className="main-content">
+
+        {/* <CategoryTabs selected={selectedCategory} onSelect={setSelectedCategory} /> */}
+
+        {isLoading && <p>Carregando produtos...</p>}
+        {error && <p>{error}</p>}
+        {!isLoading && !error && (
+          <ProductCarousel products={products} onProductClick={handleProductClick} />
+        )}
+
+        {isModalOpen && selectedProduct && (
+          <ProductModal
+            product={selectedProduct}
+            onClose={() => setIsModalOpen(false)}
+          />
+        )}
+      </main>
     </div>
   );
 }
