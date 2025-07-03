@@ -54,13 +54,13 @@ display: flex;
 .related-title {
   font-size: 1.875rem;
   font-weight: bold;
-  color: #151875;
+  color: v.$primaria-clara;
   text-align: center;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 3rem 0 1.5rem;
+  // margin: 3rem 0 1.5rem;
   width: 100%;
 
   &::before,
@@ -112,7 +112,7 @@ display: flex;
 
     .price {
       font-weight: 600;
-      color: #7E33E0;
+      color: v.$primary;
       font-size: 18px;
     }
 
