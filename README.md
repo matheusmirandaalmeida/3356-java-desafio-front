@@ -2,6 +2,23 @@
 
 Este projeto é uma aplicação frontend desenvolvida em **React** com **Vite** e **TypeScript**, que simula a vitrine de uma loja de produtos de tecnologia, conforme o desafio proposto pela Econverse.
 
+📦 Organização
+O projeto é dividido em componentes pequenos e específicos (como Header, Footer, Modal, Produtos).
+
+Cada componente tem sua própria pasta com o arquivo .tsx e o .scss correspondente.
+
+A URL da API é redirecionada por uma proxy configurada no Vite.
+
+🖼️ Ícones SVG
+Todos os ícones foram transformados em componentes React personalizados.
+
+Existe um componente Icon.tsx que recebe o nome do ícone e renderiza o componente correto (ex: cart, user, heart).
+
+🎨 Estilos
+Os estilos usam SCSS com módulos (.module.scss) para evitar conflitos entre classes.
+
+Um arquivo de variáveis central (variables.scss) define as cores, fontes e estilos padrão para o projeto.
+
 ## 🧑 Autor
 
 **Matheus Almeida**  
