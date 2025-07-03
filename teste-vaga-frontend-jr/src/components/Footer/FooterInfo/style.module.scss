@@ -1,0 +1,92 @@
+@use "../../../styles/variables.scss" as v;
+
+.footer {
+  background-color: #f9f9f9;
+  color: #333;
+  font-size: 0.875rem;
+
+  .footerContent {
+    width: 1440px;
+    /* margin: 0 auto; */
+    padding: 3rem 5%;
+    display: flex;
+    gap: 3rem;
+
+    .columnLogo {
+      flex: 0.7;
+
+      h2 {
+        font-size: 1.5rem;
+        font-weight: 700;
+
+        span {
+          background-color: v.$destaque;
+          color: white;
+          border-radius: 50%;
+          padding: 0.2rem 0.5rem;
+          margin-right: 0.2rem;
+        }
+      }
+
+      p {
+        margin: 1rem 0;
+        max-width: 250px;
+        color: #666;
+      }
+
+      .socialIcons {
+        display: flex;
+        gap: 1rem;
+        font-size: 1.25rem;
+
+        svg {
+          color: #333;
+          cursor: pointer;
+
+          &:hover {
+            color: v.$destaque;
+          }
+        }
+      }
+    }
+
+    .verticalLine {
+      width: 1px;
+      background-color: #ccc;
+      height: auto;
+    }
+
+    .columns {
+      display: flex;
+      gap: 5rem;
+
+      h4 {
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+
+        li {
+          margin-bottom: 0.5rem;
+          color: #666;
+          cursor: pointer;
+
+          &:hover {
+            color: v.$destaque;
+          }
+        }
+      }
+    }
+  }
+  .copyRight {
+    //   background-color: red;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.813rem;
+    font-weight: 300;
+    color: v.$quase-preto;
+  }
+}

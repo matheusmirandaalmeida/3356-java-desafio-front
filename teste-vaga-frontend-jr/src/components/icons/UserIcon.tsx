@@ -1,5 +1,3 @@
-// src/components/icons/UserIcon.tsx
-
 const UserIcon = ({ className = "" }) => (
   <svg
     className={className}

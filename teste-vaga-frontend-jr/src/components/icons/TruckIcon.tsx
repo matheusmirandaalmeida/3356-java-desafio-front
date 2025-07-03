@@ -1,4 +1,3 @@
-// src/components/icons/TruckIcon.tsx
 import React from 'react';
 
 interface TruckIconProps {

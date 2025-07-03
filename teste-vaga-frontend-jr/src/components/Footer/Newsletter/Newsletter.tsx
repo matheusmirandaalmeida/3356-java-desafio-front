@@ -6,7 +6,10 @@ export default function Newsletter() {
       <div className={styles.content}>
         <div>
           <h2>Inscreva-se na nossa newsletter</h2>
-          <p>Assine a nossa newsletter e receba as novidades e conteúdos exclusivos da Econverse.</p>
+          <p>
+            Assine a nossa newsletter e receba as novidades e conteúdos
+            exclusivos da Econverse.
+          </p>
         </div>
         <form className={styles.form}>
           <input type="text" placeholder="Digite seu nome" />

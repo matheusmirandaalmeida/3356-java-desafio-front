@@ -1,21 +1,123 @@
-.modal-overlay {
+@use "../../styles/variables.scss" as v;
+
+.overlay {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
 }
 
-.modal-content {
-  background: white;
+.modal {
+  background: v.$white;
   border-radius: 8px;
+  padding: 2rem;
   width: 90%;
-  max-width: 800px;
-  padding: 30px;
+  max-width: 769px;
   position: relative;
+  height: 299px;;
+
+  .close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: v.$cinza-escuro;
+  }
+
+  .content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+    img {
+      max-width: 247px;
+    }
+
+    .details {
+      flex: 1;
+      font-family: v.$font-primary;
+
+      h2 {
+        font-size: 1.25rem;
+        text-transform: uppercase;
+        color: v.$dark-text;
+      }
+
+      strong {
+        font-size: 1.5rem;
+        color: v.$quase-preto;
+        display: block;
+        margin: 1rem 0;
+      }
+
+      p {
+        font-size: 0.75rem;
+        color: v.$cinza-claro;
+        margin-bottom: 0.5rem;
+      }
+
+      a {
+        font-size: 0.75rem;
+        font-weight: bold;
+        color: v.$primaria;
+        display: inline-block;
+        margin-bottom: 1rem;
+      }
+
+      .actions {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+
+        .quantity {
+          display: flex;
+          border: 1px solid v.$cinza-claro;
+          border-radius: 4px;
+          overflow: hidden;
+
+          button {
+            background: none;
+            border: none;
+            padding: 0.5rem 0.75rem;
+            font-size: 1rem;
+            cursor: pointer;
+            color: v.$quase-preto;
+          }
+
+          span {
+            padding: 0.5rem 1rem;
+            background: v.$white;
+            font-size: 1rem;
+            font-weight: bold;
+            color: v.$quase-preto;
+          }
+        }
+
+        .buy {
+          background: v.$destaque;
+          border: none;
+          padding: 0.75rem 2rem;
+          border-radius: 4px;
+          font-weight: bold;
+          cursor: pointer;
+          font-family: v.$font-primary;
+          transition: background 0.3s;
+          width: 188px;
+
+          &:hover {
+            background: v.$primaria;
+          }
+        }
+      }
+    }
+  }
 }

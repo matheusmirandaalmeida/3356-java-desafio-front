@@ -6,8 +6,12 @@ import CartIcon from './icons/CartIcon';
 import UserIcon from './icons/UserIcon';
 import HeartIcon from './icons/HeartIcon';
 import GroupIcon from './icons/GroupIcon';
+import FacebookIcon from './icons/FacebookIcon';
+import InstagramIcon from './icons/InstagramIcon';
+import LinkedinIcon from './icons/linkedin';
+import CrownIcon from './icons/CrownIcon';
 
-type IconName = 'shield' | 'truck' | 'card' | 'group' | 'magnifyglass' | 'cart' | 'user' | 'heart';
+type IconName = 'shield' | 'truck' | 'card' | 'group' | 'magnifyglass' | 'cart' | 'user' | 'heart' | 'facebook' | 'instagram' | 'linkedin' | 'crown';
 
 interface IconProps {
   name: IconName;
@@ -23,6 +27,10 @@ const icons: Record<IconName, React.FC<{ className?: string }>> = {
   user: UserIcon,
   heart: HeartIcon,
   group: GroupIcon,
+  facebook: FacebookIcon,
+  instagram: InstagramIcon,
+  linkedin: LinkedinIcon,
+  crown: CrownIcon
 };
 
 const Icon: React.FC<IconProps> = ({ name, className = "" }) => {

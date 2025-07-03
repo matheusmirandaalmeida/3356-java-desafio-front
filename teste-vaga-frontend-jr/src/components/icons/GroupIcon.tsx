@@ -1,4 +1,3 @@
-// src/components/icons/GroupIcon.tsx
 import React from 'react';
 
 interface GroupIconProps {

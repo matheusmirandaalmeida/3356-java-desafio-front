@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
 import './App.scss';
 import Header from './components/Header';
-import ProductCarousel from './components/ProductCarousel';
 import ProductModal from './components/ProductModal';
 import type { Product } from './types/Product';
-import CategoryTabs from './components/CategoryTabs';
 import PartnerBanner from './components/Partners/PartnerBanner';
 import BrandLogos from './components/Brands/BrandLogos';
+import Newsletter from './components/Footer/Newsletter/Newsletter';
+import RelatedProducts from './components/ProdutosRelacionados/RelatedProducts';
+import FooterInfo from './components/Footer/FooterInfo/FooterInfo';
 
 function App() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -14,7 +15,6 @@ function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-
   const [selectedCategory, setSelectedCategory] = useState<string>("CELULAR");
 
   useEffect(() => {
@@ -46,39 +46,37 @@ function App() {
       <Header />
 
       <main className="main-content">
-        <h2 className="related-title">Produtos relacionados</h2>
+        <RelatedProducts
+          products={products}
+          isLoading={isLoading}
+          error={error}
+          selectedCategory={selectedCategory}
+          onCategoryChange={setSelectedCategory}
+          onProductClick={handleProductClick}
+        />
 
-        <CategoryTabs selected={selectedCategory} onSelect={setSelectedCategory} />
+        <PartnerBanner />
 
-        {isLoading && <p>Carregando produtos...</p>}
-        {error && <p>{error}</p>}
-        {!isLoading && !error && (
-          <ProductCarousel products={products} onProductClick={handleProductClick} />
-        )}
+        <RelatedProducts
+          products={products}
+          isLoading={isLoading}
+          error={error}
+          selectedCategory={selectedCategory}
+          onCategoryChange={setSelectedCategory}
+          onProductClick={handleProductClick}
+        />
 
-        <PartnerBanner/>
-
-        <h2 className="related-title">Produtos relacionados</h2>
-        <CategoryTabs selected={selectedCategory} onSelect={setSelectedCategory} />
-
-        {isLoading && <p>Carregando produtos...</p>}
-        {error && <p>{error}</p>}
-        {!isLoading && !error && (
-          <ProductCarousel products={products} onProductClick={handleProductClick} />
-        )}
-
-        <PartnerBanner/>
-
+        <PartnerBanner />
         <BrandLogos />
 
-        <h2 className="related-title">Produtos relacionados</h2>
-        <CategoryTabs selected={selectedCategory} onSelect={setSelectedCategory} />
-
-        {isLoading && <p>Carregando produtos...</p>}
-        {error && <p>{error}</p>}
-        {!isLoading && !error && (
-          <ProductCarousel products={products} onProductClick={handleProductClick} />
-        )}
+        <RelatedProducts
+          products={products}
+          isLoading={isLoading}
+          error={error}
+          selectedCategory={selectedCategory}
+          onCategoryChange={setSelectedCategory}
+          onProductClick={handleProductClick}
+        />
 
         {isModalOpen && selectedProduct && (
           <ProductModal
@@ -86,6 +84,10 @@ function App() {
             onClose={() => setIsModalOpen(false)}
           />
         )}
+
+        <Newsletter />
+
+        <FooterInfo />
       </main>
     </div>
   );

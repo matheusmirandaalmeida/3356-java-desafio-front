@@ -1,5 +1,3 @@
-// src/components/icons/SearchIcon.tsx
-
 const SearchIcon = ({ className = "" }) => (
   <svg
     className={className}
